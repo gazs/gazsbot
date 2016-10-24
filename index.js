@@ -8,10 +8,10 @@ var bingCredentials = {
 
 // secrets can be found in heroku dashboard
 var client = new Twit({
-  consumer_key: 'Mbpu45JeNPxJ4iav4fur3xt8p',
-  consumer_secret: process.env.consumer_secret,
+	consumer_key: 'Mbpu45JeNPxJ4iav4fur3xt8p',
+	consumer_secret: process.env.consumer_secret,
 
-  access_token: '790492372736086016-FCEl1uEOLGNDlIstrReD20yR1k9dpRR',
+	access_token: '790492372736086016-FCEl1uEOLGNDlIstrReD20yR1k9dpRR',
 	access_token_secret: process.env.access_token_secret
 });
 
