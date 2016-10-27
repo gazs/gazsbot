@@ -33,19 +33,21 @@ function translate(text) {
 
 function postToTwitter(status) {
 	console.log('<-' + status);
-	client.post('statuses/update', {status: status});
+	client.post('statuses/update', {status: status.substring(0,140)});
 }
 
 function shouldProcess(event) {
 	return event.user && event.user.screen_name === 'gazs' &&
 		event.text &&
-		!event.in_reply_to_user_id
+		!event.in_reply_to_user_id &&
+		!event.retweeted_status
 }
 
 stream.on('message', function(event) {
 	if (shouldProcess(event)) {
-		console.log('—>' + event.text);
-		translate(event.text).then(postToTwitter);
+		var text = unescape(event.text);
+		console.log('—>' + text);
+		translate(text).then(postToTwitter);
 	}
 });
 
